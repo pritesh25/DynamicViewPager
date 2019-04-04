@@ -1,17 +1,22 @@
 package com.example.dynamicviewpager;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager pager = null;
     private MainPagerAdapter pagerAdapter = null;
     ArrayList<String> list = new ArrayList<>();
+    private int currentPage = 0;
 
     /**
      * https://homepages.cae.wisc.edu/~ece533/images/airplane.png
@@ -33,21 +38,40 @@ public class MainActivity extends AppCompatActivity {
         list.add("https://homepages.cae.wisc.edu/~ece533/images/barbara.bmp");
         list.add("https://homepages.cae.wisc.edu/~ece533/images/boat.png");
 
-        pagerAdapter = new MainPagerAdapter(getApplicationContext(),list);
-        pager = (ViewPager) findViewById(R.id.view_pager);
+        pagerAdapter = new MainPagerAdapter(getApplicationContext(), list);
+        pager = findViewById(R.id.view_pager);
         pager.setAdapter(pagerAdapter);
-
-        // Create an initial view to display; must be a subclass of FrameLayout.
-        //LayoutInflater inflater = getLayoutInflater();
-        //FrameLayout v0 = (FrameLayout) inflater.inflate(R.layout.one_of_my_page_layouts, null);
 
         for (int i = 0; i < list.size(); i++) {
             pagerAdapter.addView(getLayoutInflater().inflate(R.layout.one_of_my_page_layouts, null), i);
         }
 
-        //pagerAdapter.addView(getLayoutInflater().inflate(R.layout.one_of_my_page_layouts, null), 1);
-
         pagerAdapter.notifyDataSetChanged();
+
+        TabLayout tabLayout = findViewById(R.id.tabDots);
+        tabLayout.setupWithViewPager(pager, true);
+
+        setTimer();
+    }
+
+    private void setTimer() {
+
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == list.size()) {
+                    currentPage = 0;
+                }
+                pager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer timer = new Timer(); // This will create a new Thread
+        timer.schedule(new TimerTask() { // task to be scheduled
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 500, 3000);
     }
 
     public void addView(View newPage) {

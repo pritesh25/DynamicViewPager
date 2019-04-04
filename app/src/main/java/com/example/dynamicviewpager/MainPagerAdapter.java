@@ -37,10 +37,6 @@ public class MainPagerAdapter extends PagerAdapter {
             return index;
     }
 
-    //-----------------------------------------------------------------------------
-    // Used by ViewPager.  Called when ViewPager needs a page to display; it is our job
-    // to add the page to the container, which is normally the ViewPager itself.  Since
-    // all our pages are persistent, we simply retrieve it from our "views" ArrayList.
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
         View v = views.get(position);
