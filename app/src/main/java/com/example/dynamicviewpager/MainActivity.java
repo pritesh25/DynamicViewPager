@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(pagerAdapter);
 
         for (int i = 0; i < list.size(); i++) {
-            pagerAdapter.addView(getLayoutInflater().inflate(R.layout.one_of_my_page_layouts, null), i);
+            pagerAdapter.addView(getLayoutInflater().inflate(R.layout.item_advertise, null), i);
         }
 
         pagerAdapter.notifyDataSetChanged();
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 handler.post(Update);
             }
-        }, 500, 3000);
+        }, 500, 1800);
     }
 
     public void addView(View newPage) {
