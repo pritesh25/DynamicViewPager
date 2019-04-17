@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void productAdvertise() {
 
-        //ViewPager pager = null;
-        //MainPagerAdapter pagerAdapter = null;
         final int[] currentPage = {0};
         final ArrayList<String> list = new ArrayList<>();
 

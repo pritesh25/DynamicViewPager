@@ -1,6 +1,8 @@
 package com.example.dynamicviewpager;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -49,6 +51,19 @@ public class MainPagerAdapter extends PagerAdapter {
                 .fit()
                 .error(R.drawable.ic_launcher_background)
                 .into(iv);
+
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,ProductDetail.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Bundle bundle = new Bundle();
+                bundle.putString("position", String.valueOf(position));
+                bundle.putString("url", String.valueOf(list.get(position)));
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
 
         container.addView(v);
         return v;
