@@ -25,7 +25,7 @@ public class ProductDetail extends AppCompatActivity {
             tvUrl.setText(bundle.getString("url"));
 
         } else {
-            Toast.makeText(getApplicationContext(),"numm data",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "numm data", Toast.LENGTH_SHORT).show();
         }
 
     }
