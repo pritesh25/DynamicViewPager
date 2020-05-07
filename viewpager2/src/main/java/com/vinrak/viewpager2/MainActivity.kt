@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val tabDots: TabLayout = findViewById(R.id.tabDots)
 
         TabLayoutMediator(tabDots, viewpager2Test, TabLayoutMediator.TabConfigurationStrategy { tab, position -> // Styling each tab here
-            //tab.text = "Tab $position"
+            //tab.text = "Tab $position" // no need to add any text
         }).attach()
 
 

@@ -15,7 +15,7 @@ class Pager2Adapter(var list: ArrayList<String>, var cxt: Context) : RecyclerVie
     }
 
     class MyViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
-        val tvName: TextView = view!!.findViewById(R.id.tvName)!!
+        val tvName: TextView = view!!.findViewById(R.id.tvLoanTitle)!!
     }
 
     override fun getItemCount(): Int {
