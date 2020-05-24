@@ -11,7 +11,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/viewpager" />
-            <option value="$PROJECT_DIR$/viewpager2" />
+            <option value="$PROJECT_DIR$/viewpager2withDynamicFragment" />
+            <option value="$PROJECT_DIR$/viewpager2withRecyclerview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

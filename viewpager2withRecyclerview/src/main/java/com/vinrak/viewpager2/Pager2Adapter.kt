@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Pager2Adapter(var list: ArrayList<String>, var cxt: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class Pager2Adapter(private var list: ArrayList<String>, private var cxt: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(cxt).inflate(R.layout.item, parent, false)

@@ -1,2 +1,3 @@
 include ':viewpager'
-include ':viewpager2'
+include ':viewpager2withRecyclerview'
+include ':viewpager2withDynamicFragment'

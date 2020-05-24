@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -47,16 +47,12 @@ public class MainPagerAdapter extends PagerAdapter {
         ImageView iv = v.findViewById(R.id.iv);
         tv.setText("" + position);
 
-        Picasso.with(context)
-                .load(list.get(position))
-                .fit()
-                .error(R.drawable.ic_launcher_background)
-                .into(iv);
+        Glide.with(context).load(list.get(position)).into(iv);
 
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,ProductDetail.class);
+                Intent intent = new Intent(context, ProductDetail.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 Bundle bundle = new Bundle();
                 bundle.putString("position", String.valueOf(position));
