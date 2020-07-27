@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("https://homepages.cae.wisc.edu/~ece533/images/boat.png");
 
         MainPagerAdapter pagerAdapter = new MainPagerAdapter(getApplicationContext(), list);
-        final ViewPager pager = findViewById(R.id.view_pager);
+        final ViewPagerCustomDuration pager = findViewById(R.id.view_pager);
+        pager.setScrollDurationFactor(5);
         pager.setAdapter(pagerAdapter);
 
         for (int i = 0; i < list.size(); i++) {
@@ -67,7 +68,5 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTimer() {
 
-
     }
-
 }
