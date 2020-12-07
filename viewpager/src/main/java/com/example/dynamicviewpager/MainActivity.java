@@ -14,6 +14,12 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * this include
+     * 1. smooth viewpager
+     *
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

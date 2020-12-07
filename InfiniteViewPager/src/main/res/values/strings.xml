@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">infiniteviewpager</string>
+    <string name="card_number_format">****  ****  ****  %1$s</string>
+</resources>

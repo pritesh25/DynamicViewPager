@@ -1,3 +1,5 @@
+include ':InfiniteViewPager'
+include ':CustomViewPager'
 include ':viewpager'
 include ':viewpager2withRecyclerview'
 include ':viewpager2withDynamicFragment'
