@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val data = listOf(
+        /*val data = listOf(
                 CardInfo(last4Digits = "4444", status = CardStatus.FROZEN),
                 CardInfo(last4Digits = "5555", status = CardStatus.ACTIVE),
 
@@ -29,6 +29,20 @@ class MainActivity : AppCompatActivity() {
 
                 CardInfo(last4Digits = "1111", status = CardStatus.ACTIVE),
                 CardInfo(last4Digits = "2222", status = CardStatus.FROZEN)
+        )*/
+
+        val data = listOf(
+                CardInfo(null, status = CardStatus.FROZEN)/* last - 1  */,
+                CardInfo(null, status = CardStatus.ACTIVE)/* last  */,
+
+                CardInfo(last4Digits = "1111", status = CardStatus.ACTIVE),
+                CardInfo(last4Digits = "2222", status = CardStatus.FROZEN),
+                CardInfo(last4Digits = "3333", status = CardStatus.ACTIVE),
+                CardInfo(last4Digits = "4444", status = CardStatus.FROZEN),
+                CardInfo(last4Digits = "5555", status = CardStatus.ACTIVE),
+
+                CardInfo(null, status = CardStatus.ACTIVE) /* first */,
+                CardInfo(null, status = CardStatus.FROZEN) /* second */
         )
 
         val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)

@@ -13,14 +13,14 @@ import com.example.infiniteviewpager.model.CardStatus
 import com.example.infiniteviewpager.util.BitmapUtil
 
 class EndlessViewPagerAdapter(
-    resources: Resources,
-    private val data: List<CardInfo>
+        resources: Resources,
+        private val data: List<CardInfo>
 ) : RecyclerView.Adapter<EndlessViewPagerAdapter.ViewHolder>() {
 
     private val frozenCardDrawable = BitmapUtil.createMaskedDrawable(
-        resources,
-        R.drawable.ic_card_item_image,
-        R.mipmap.card_frozen_overlay
+            resources,
+            R.drawable.ic_card_item_image,
+            R.mipmap.card_frozen_overlay
     )
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -29,7 +29,7 @@ class EndlessViewPagerAdapter(
 
         fun bind(cardInfo: CardInfo) {
             last4Digits.text =
-                itemView.context.getString(R.string.card_number_format, cardInfo.last4Digits)
+                    itemView.context.getString(R.string.card_number_format, cardInfo.last4Digits)
 
             when (cardInfo.status) {
                 CardStatus.ACTIVE -> cardImage.setImageResource(R.drawable.ic_card_item_image)
@@ -38,12 +38,11 @@ class EndlessViewPagerAdapter(
         }
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(data[position])
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        return ViewHolder(inflater.inflate(R.layout.view_holder_card_item, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_holder_card_item, parent, false))
     }
 }
